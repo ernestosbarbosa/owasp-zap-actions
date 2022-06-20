@@ -23,7 +23,6 @@ jobs:
 
       - name: Run Application
         run: echo 'Starting application'
-      - run: apt-get update; apt-get install curl -y
       - run: curl shop:3000 > curl_result_docker
       - run: cat curl_result_docker
 
