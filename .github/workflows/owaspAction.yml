@@ -17,20 +17,13 @@ jobs:
         image: bkimminich/juice-shop
         ports:
           - 3000:3000
-        options: >-
-          --health-cmd "curl -f http://shop:3000/#/"
-          --health-interval 30s
-          --health-timeout 10s
-          --health-retries 5
-          --health-start-period 30s
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Run Application
         run: echo 'Starting application'
-      - run: curl shop:3000 > curl_result_docker
-      - run: cat curl_result_docker
+      - run: curl http://shop:3000
 
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.4.0
