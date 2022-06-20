@@ -34,6 +34,7 @@ jobs:
         run: |
           mkdir ./public
           mv ./report_html.html ./public/
+        if: always()
 
       - name: Publish Report
         uses: peaceiris/actions-gh-pages@v3
