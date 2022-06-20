@@ -33,7 +33,7 @@ jobs:
       - name: Move files
         run: |
           mkdir ./public
-          mv ./report_html.html ./public/
+          mv ./report_html.html ./public/index.html
         if: always()
 
       - name: Publish Report
