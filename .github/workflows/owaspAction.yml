@@ -1,0 +1,30 @@
+name: OWASP ZAP Test
+
+on:
+  push:
+    # monitora a branch main
+    branches: [ main ]
+
+  # permite executar manualmente
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      shop:
+        image: bkimminich/juice-shop
+        ports:
+          - 3000:3000
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run Application
+        run: echo 'Starting application'
+
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.4.0
+        with:
+          target: 'http://shop:3000/'
