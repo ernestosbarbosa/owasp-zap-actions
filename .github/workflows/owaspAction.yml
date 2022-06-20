@@ -23,7 +23,6 @@ jobs:
 
       - name: Run Application
         run: echo 'Starting application'
-      - run: curl http://localhost:3000
 
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.4.0
